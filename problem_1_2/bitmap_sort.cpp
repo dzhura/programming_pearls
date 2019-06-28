@@ -4,23 +4,14 @@
 
 int main(int argc, char * argv[])
 {
-  if (argc != 2) {
-    std::cerr << "Wrong argc!" << std::endl;
-    return 1;
-  }
-
-  char * in_filename = argv[1];
-
-  std::ifstream in_file(in_filename);
-
   size_t N;
-  in_file >> N;
+  std::cin >> N;
 
   Bitmap bitmap(N);
 
-  while (!in_file.eof()) {
+  while (std::cin.good()) {
     size_t number;
-    in_file >> number;
+    std::cin >> number;
 
     bitmap.set_bit(number-1, true);
   }
